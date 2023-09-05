@@ -1,28 +1,28 @@
 <?php
 
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\CartController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
 |
 */
 
-//default routes
-Route::get('/', [HomeController::class, 'index'])->name('home');
-
-//Client routes
-Route::prefix('clients')->group(function () {
-
-    Route::get('/', [HomeController::class, 'index'])->name('home');
-
-    Route::get('/cart-detail',[CartController::class,'cart'])->name('cart');
+Route::get('/', function () {
+    return view('welcome');
 });
 
-//Admin routes
+Route::get('login', function () {
+    return view('login');
+});
+
+
+Route::get('register', [RegisterController::class, 'getFormRegister'])->name('register');
+
+Route::get('test-mail', [RegisterController::class, 'testMail'])->name('test');

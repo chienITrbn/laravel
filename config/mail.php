@@ -28,7 +28,7 @@ return [
     | sending an e-mail. You will specify which one you are using for your
     | mailers below. You are free to add additional mailers as required.
     |
-    | Supported: "smtp", "sendmail", "mailgun", "ses",
+    | Supported: "smtp", "sendmail", "mailgun", "ses", "ses-v2",
     |            "postmark", "log", "array", "failover"
     |
     */
@@ -36,11 +36,12 @@ return [
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
-            'port' => env('MAIL_PORT', 587),
-            'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username' => env('MAIL_USERNAME'),
-            'password' => env('MAIL_PASSWORD'),
+            'url' => env('MAIL_URL'),
+            'host' => 'smtp.gmail.com',
+            'port' => 587,
+            'encryption' => 'tls',
+            'username' => 'chienjobit@gmail.com',
+            'password' => 'yuue fyiy uuxw igcn',
             'timeout' => null,
             'local_domain' => env('MAIL_EHLO_DOMAIN'),
         ],
@@ -51,10 +52,16 @@ return [
 
         'mailgun' => [
             'transport' => 'mailgun',
+            // 'client' => [
+            //     'timeout' => 5,
+            // ],
         ],
 
         'postmark' => [
             'transport' => 'postmark',
+            // 'client' => [
+            //     'timeout' => 5,
+            // ],
         ],
 
         'sendmail' => [
@@ -92,8 +99,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => 'chiennvhs160974@fpt.edu.vn',
+        'name' => 'Demo',
     ],
 
     /*
